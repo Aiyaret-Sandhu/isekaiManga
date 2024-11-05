@@ -11,7 +11,7 @@ import { Includes } from "@/api/static";
 import logo from "@/assets/mangalogo.png";
 
 export default function Header() {
-  const { isSidebarOpen, setIsSidebarOpen, isSticky, titleColor } = useHeader();
+  const { isSidebarOpen, setIsSidebarOpen, titleColor } = useHeader();
   const open = () => {
     setIsSidebarOpen((prev) => !prev);
   };
