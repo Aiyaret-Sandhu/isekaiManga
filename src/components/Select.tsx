@@ -43,7 +43,7 @@ export default function Select({
     <div className="w-full relative">
       <p className="mb-2">{title}</p>
       <div
-        className="bg-gray-200 py-1 px-2 w-full h-8 rounded-md flex items-center cursor-pointer"
+        className="bg-gray-800 py-1 px-2 w-full h-8 rounded-md flex items-center cursor-pointer"
         onClick={() => setIsOpen((prev) => !prev)}
         ref={wrapperRef}
       >
@@ -80,12 +80,12 @@ export default function Select({
         )}
       </div>
       {isOpen && (
-        <div className="w-full max-h-[300px] overflow-y-auto mt-1 rounded-md bg-gray-200 absolute top-full p-1 z-10">
+        <div className="w-full max-h-[300px] overflow-y-auto mt-1 rounded-md bg-gray-900 absolute top-full p-1 z-10">
           {type == "order" &&
             data.map((d, idx) => (
               <div
                 key={idx}
-                className={`bg-gray-200 py-1 px-2 mb-1 w-full flex items-center rounded-md cursor-pointer ${
+                className={`bg-gray-900 py-1 px-2 mb-1 w-full flex items-center rounded-md cursor-pointer ${
                   d == state
                     ? "bg-primary text-white"
                     : "hover:bg-primary hover:text-white"
@@ -99,7 +99,7 @@ export default function Select({
             data.map((d, idx) => (
               <div
                 key={idx}
-                className={`bg-gray-200 py-1 px-2 mb-1 w-full flex items-center rounded-md cursor-pointer ${
+                className={`bg-gray-900 py-1 px-2 mb-1 w-full flex items-center rounded-md cursor-pointer ${
                   state.includes(d)
                     ? "bg-primary text-white"
                     : "hover:bg-primary hover:text-white"
@@ -117,7 +117,7 @@ export default function Select({
             data.map((d: Tag, idx) => (
               <div
                 key={idx}
-                className={`bg-gray-200 py-1 px-2 mb-1 w-full flex items-center rounded-md cursor-pointer ${
+                className={`bg-gray-900 py-1 px-2 mb-1 w-full flex items-center rounded-md cursor-pointer ${
                   state.includes(d)
                     ? "bg-primary text-white"
                     : "hover:bg-primary hover:text-white"

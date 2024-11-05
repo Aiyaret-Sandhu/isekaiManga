@@ -10,7 +10,7 @@ export default function History() {
   const { history, removeHistory } = useReadingHistory()
 
   return (
-    <div className="w-full px-5 min-h-screen">
+    <div className="w-full px-5 min-h-screen text-white">
       <div className="flex items-center gap-3 mb-5 cursor-pointer" onClick={() => navigate(-1)}> <Icon icon="ph:arrow-left-bold" width={24} /><h2 className="text-xl">History</h2></div>
 
       {isEmpty(history)

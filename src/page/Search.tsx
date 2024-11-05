@@ -170,7 +170,7 @@ export default function Search() {
   };
 
   return (
-    <div className="w-full px-5 min-h-screen">
+    <div className="w-full px-5 min-h-screen text-white">
       <button
         className="flex items-center gap-3 mb-5 cursor-pointer"
         onClick={() => navigate(-1)}
@@ -183,7 +183,7 @@ export default function Search() {
         <div className="relative mr-4 bg-[#F6F6F6] rounded-lg p-0 ml-auto grow">
           <Icon
             icon="radix-icons:magnifying-glass"
-            className="text-[24px] absolute inline top-1/2 -translate-y-1/2 left-4"
+            className="text-[24px] absolute inline top-1/2 -translate-y-1/2 left-4 text-black"
           />
           <form onSubmit={onFormSubmit}>
             <input

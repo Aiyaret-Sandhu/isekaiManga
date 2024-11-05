@@ -9,7 +9,7 @@ export default function Follow() {
   const { follow } = useFollow();
 
   return (
-    <div className="w-full px-5 min-h-screen">
+    <div className="w-full px-5 min-h-screen text-white">
       <div
         className="flex items-center gap-3 mb-5 cursor-pointer"
         onClick={() => navigate(-1)}

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function HistoryCard({ id, data, handleDelete }: { id: string, data: readingHistory, handleDelete: () => void }) {
   return (
-    <div className="w-full h-24 mb-6 flex relative border-b-2 pb-1">
+    <div className="w-full h-24 mb-6 flex relative pb-1">
       <Link to={`/book/${id}`} className="h-full w-auto shrink-0">
         <img src={data.cover} className="w-16 h-24 object-cover rounded-md" />
       </Link>

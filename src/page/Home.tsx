@@ -99,15 +99,15 @@ export default function Home() {
         {/*Continue reading*/}
         <div className="hidden sm:block">
           <div className="flex justify-between">
-            <h2 className="text-2xl font-bold">Continue Reading</h2>
+            <h2 className="text-2xl text-white">Continue Reading</h2>
             <button
               onClick={() => navigate("/history")}
-              className="h-[40px] bg-primary rounded-3xl inline-flex items-center px-5 text-white"
+              className="h-[35px] bg-primary rounded-sm inline-flex items-center px-5 text-white"
             >
               See All
             </button>
           </div>
-          <div className=" w-full mt-5">
+          <div className=" w-full mt-5 text-[rgba(220,220,220,0.8)]">
             {isEmpty(history) ? (
               <div className="w-full bg-gray-100 flex items-center justify-center p-5 font-semibold">
                 EMPTY HISTORY
@@ -129,11 +129,11 @@ export default function Home() {
 
         {/*Popular tag*/}
         <div className="w-full rounded-3xl hidden lg:block">
-          <h2 className="text-2xl font-bold mb-3">Explore Popular Genres</h2>
+          <h2 className="text-2xl text-white mb-3">Explore Popular Genres</h2>
           {tag?.map((item, idx) => {
             return <TagItem key={idx} item={item} />;
           })}
-          <button className="h-[40px] bg-primary rounded-3xl inline-flex items-center px-5 text-white m-2 ">
+          <button className="h-[40px] bg-primary rounded-sm inline-flex items-center px-5 text-white m-2 ">
             See All
           </button>
         </div>
@@ -141,9 +141,9 @@ export default function Home() {
         {/*Popular*/}
         <div>
           <div className="flex justify-between">
-            <h2 className="text-2xl font-bold">Top Manga</h2>
+            <h2 className="text-2xl text-white">Top Manga</h2>
           </div>
-          <div className=" w-full mt-5 bg-gray-50 rounded-lg p-5 flex flex-col gap-4">
+          <div className=" w-full mt-5 bg-gray-100 rounded-sm p-5 flex flex-col gap-4">
             {rankingLoading ? (
               <div>Loading</div>
             ) : (
@@ -161,10 +161,10 @@ export default function Home() {
       {/* Latest update */}
       <section className="mb-8 w-full">
         <div className="flex justify-between">
-          <h2 className="text-2xl font-bold mb-8">Recently Updated</h2>
+          <h2 className="text-2xl text-white mb-8">Recently Updated</h2>
           <button
             onClick={() => navigate("/latest")}
-            className="h-[40px] bg-primary rounded-3xl inline-flex items-center px-5 text-white"
+            className="h-[40px] bg-primary rounded-sm inline-flex items-center px-5 text-white"
           >
             See All
           </button>
@@ -192,10 +192,10 @@ export default function Home() {
       {/* Recently added */}
       <section>
         <div className="flex justify-between">
-          <h2 className="text-2xl font-bold mb-8">Recently Added</h2>
+          <h2 className="text-2xl text-white mt-8 mb-8">Recently Added</h2>
           <button
             onClick={() => navigate("/search?order[createdAt]=desc")}
-            className="h-[40px] bg-primary rounded-3xl inline-flex items-center px-5 text-white"
+            className="h-[40px] bg-primary rounded-sm inline-flex items-center mt-8 px-5 text-white"
           >
             See All
           </button>
@@ -206,8 +206,8 @@ export default function Home() {
         ) : (
           <div className="w-full relative">
             <Slider
-              slidesToShow={8}
-              slidesToScroll={7}
+              slidesToShow={6}
+              slidesToScroll={5}
               dots={true}
               draggable={false}
             >

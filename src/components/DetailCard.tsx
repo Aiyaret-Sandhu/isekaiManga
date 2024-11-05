@@ -23,17 +23,17 @@ export function DetailCard(props: Props) {
       <div className="flex p-4">
         <Link
           to={`/book/${props.manga.id}`}
-          className="inline-block w-28 h-28 rounded-2xl shrink-0"
+          className="inline-block w-30 h-36 rounded-sm shrink-0"
         >
           <img
             src={getCoverArt(props.manga) || NoImg}
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full h-full object-cover rounded-sm"
           />
         </Link>
-        <div className="ml-2 flex flex-col justify-between w-full text-ellipsis">
+        <div className="ml-2 flex flex-col justify-between w-full text-ellipsis text-white">
           <Link
             to={`/book/${props.manga.id}`}
-            className="text-lg font-bold mb-1 line-clamp-2 break-all"
+            className="text-lg mb-1 line-clamp-2 break-all"
           >
             {getMangaTitle(props.manga)}
           </Link>
