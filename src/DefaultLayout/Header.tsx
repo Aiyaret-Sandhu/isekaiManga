@@ -133,7 +133,7 @@ export default function Header() {
         />
         <Link to={"/"} className="flex flex-nowrap gap-4">
           <img src={logo} alt="logo" className="h-10 w-10" />
-          AiManga
+          Isekai Manga
         </Link>
       </div>
       <div className="absolute right-0 flex flex-nowrap items-center md:relative mr-4 bg-[#F6F6F6] rounded-lg ml-auto">
