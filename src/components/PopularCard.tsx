@@ -34,8 +34,7 @@ export default function PopularCard({ data }: { data?: Manga }) {
   }
 
   return (
-    <div className="relative flex h-[510px] p-10 rounded-sm transition-all">
-      {/* Background image */}
+    <div className="relative flex flex-col sm:flex-row h-auto sm:h-[400px] md:h-[510px] p-4 sm:p-6 md:p-10 rounded-sm transition-all overflow-hidden">
       <div className="absolute left-0 top-0 w-full h-full z-[-2] rounded-md overflow-hidden">
         <img
           src={`${coverArt}`}
@@ -44,47 +43,44 @@ export default function PopularCard({ data }: { data?: Manga }) {
           className="object-cover w-full h-full blur-lg opacity-30 rounded-sm"
         />
       </div>
-      {/* Book cover */}
       <button
         onClick={() => navigate(`/book/${data.id}`)}
-        className="flex-1 overflow-hidden max-w-[300px] h-full rounded-sm"
+        className="flex-shrink-0 w-full sm:w-[150px] md:w-[200px] lg:w-[300px] h-64 sm:h-full mb-4 sm:mb-0 overflow-hidden rounded-sm"
       >
         <img
           referrerPolicy="no-referrer"
           src={coverArt}
           alt="Book Cover"
-          className="object-contain h-full rounded-sm"
+          className="object-cover sm:object-contain w-full h-full rounded-sm"
           loading="lazy"
         />
       </button>
-      {/* Book details */}
-      <div className="flex-1 ml-4 h-full flex flex-col p-10">
+      <div className="flex-1 sm:ml-4 h-full flex flex-col sm:p-2 md:p-6 lg:p-10">
         <div className="shrink-0 mb-2">
           <button onClick={() => navigate(`/book/${data.id}`)}>
-            <span className="text-2xl md:text-3xl lg:text-4xl line-clamp-2 text-gray-200">
+            <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl line-clamp-2 text-gray-200">
               {getMangaTitle(data)}
             </span>
           </button>
-          <div className="flex gap-2 m-2 flex-wrap">
+          <div className="flex gap-2 my-2 flex-wrap">
             {data?.attributes.contentRating === "suggestive" && (
               <Tag contentRating={data?.attributes.contentRating} />
             )}
             {data.attributes.tags.map((obj, index) => {
               if (obj.attributes.group === "genre") {
-                return <Tag key={index} data={obj} />;
+                return <Tag key={index} data={obj} />
               }
             })}
           </div>
         </div>
-        {/* Description */}
-        <div className="overflow-y-auto grow mb-2">
-          <p className="text-sm overflow-hidden text-gray-400">
-            {data.attributes?.description["en"]}
+        <div className="overflow-y-auto grow mb-2 max-h-32 sm:max-h-none">
+          <p className="text-xs sm:text-sm overflow-hidden text-gray-400">
             {data.attributes?.description["en"]}
           </p>
         </div>
-        {/* Author */}
-        <p className="text-gray-300">{author === artist ? author : author + ", " + artist}</p>
+        <p className="text-sm sm:text-base text-gray-300">
+          {author === artist ? author : author + ", " + artist}
+        </p>
       </div>
     </div>
   );
