@@ -8,6 +8,7 @@ import getCoverArt from "@/utils/getCoverArt";
 import { Icon } from "@iconify/react";
 import { Manga } from "@/api/schema";
 import { Includes } from "@/api/static";
+import logo from "@/assets/mangalogo.png";
 
 export default function Header() {
   const { isSidebarOpen, setIsSidebarOpen, isSticky, titleColor } = useHeader();
@@ -111,17 +112,14 @@ export default function Header() {
 
   return (
     <div
-      className={`w-full h-[64px] flex items-center justify-between ${
-        isSticky ? "sticky" : ""
-      } top-0 bg-white ${
-        scrollY && "border-b-2 border-primary"
-      } z-20 py-2 pl-6 mb-4`}
+      className={`w-full h-[64px] flex items-center justify-between sticky top-0 bg-[rgba(200,200,200,0.8)] z-20 py-2 pl-6 mb-4 transition-all duration-300 shadow-lg`}
       style={{
-        backgroundColor: `rgba(255, 255, 255, ${Math.max(0, scrollY / 64)})`,
+        borderBottom: scrollY > 0 ? "1px solid rgba(0,0,0,0.1)" : "none",
+        boxShadow: "0 10px 40px rgba(100, 100, 100, 0.7)"
       }}
     >
       <div
-        className={`font-bold text-2xl flex items-center ${
+        className={`font-bold text-2xl flex items-center gap-6 ${
           isSidebarOpen ? "hidden" : "inline"
         }`}
         style={{ color: textColor }}
@@ -133,11 +131,8 @@ export default function Header() {
           className="hover:cursor-pointer"
           onClick={open}
         />
-        <Link to={"/"} className="flex flex-nowrap">
-          <Icon
-            icon="raphael:book"
-            className="text-primary text-5xl md:3xl inline-block ml-3"
-          />
+        <Link to={"/"} className="flex flex-nowrap gap-4">
+          <img src={logo} alt="logo" className="h-10 w-10" />
           AiManga
         </Link>
       </div>
@@ -149,15 +144,15 @@ export default function Header() {
             wrapperRef.current?.focus();
           }}
           icon="radix-icons:magnifying-glass"
-          className="text-[24px] absolute inline top-1/2 -translate-y-1/2 left-4"
+          className="text-[24px] text-[rgba(20,20,20,0.9)] absolute inline top-1/2 -translate-y-1/2 left-4"
         />
         <form onSubmit={onFormSubmit}>
           <input
-            className={`bg-[#F6F6F6] ${
+            className={`bg-[rgba(230,230,230,0.9)] ${
               searchBarExpand
                 ? "w-[92vw] md:w-[590px] pl-12"
-                : "w-0 md:w-[300px] pl-10"
-            } p-3 md:pl-12 text-md text-gray-900 rounded-lg block transition-all outline-primary`}
+                : "w-0 md:w-[500px] pl-10"
+            } p-3 md:pl-12 text-md text-black rounded-sm bg-opacity-50 block transition-all outline-primary`}
             type="search"
             placeholder="Search for manga, authors..."
             value={searchValue}
@@ -179,7 +174,6 @@ export default function Header() {
               <Icon icon="ph:arrow-right-bold" width={20} height={20} />
             </Link>
             {searchResult.map((manga, index) => {
-              console.log(manga);
               return (
                 <Link
                   to={`/book/${manga.id}`}

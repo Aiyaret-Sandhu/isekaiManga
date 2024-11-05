@@ -60,10 +60,15 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full px-8 select-none">
+    <div
+      className="w-full px-8 select-none"
+      style={{ backgroundColor: "#0B0909" }}
+    >
       {/*Top manga*/}
-      <section className="mb-8 w-full">
-        <h2 className="text-2xl font-bold mb-4">Recommended Manga</h2>
+      <section className="mb-20 w-full">
+        <h2 className="text-3xl mb-4 text-white pt-4 px-4">
+          Recommended Manga
+        </h2>
         {popularsLoading ? (
           <PopularCard />
         ) : (
@@ -124,14 +129,12 @@ export default function Home() {
 
         {/*Popular tag*/}
         <div className="w-full rounded-3xl hidden lg:block">
-          <h2 className="text-2xl font-bold mb-3">
-          Explore Popular Genres
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">Explore Popular Genres</h2>
           {tag?.map((item, idx) => {
             return <TagItem key={idx} item={item} />;
           })}
           <button className="h-[40px] bg-primary rounded-3xl inline-flex items-center px-5 text-white m-2 ">
-          See All
+            See All
           </button>
         </div>
 
