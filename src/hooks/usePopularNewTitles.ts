@@ -16,5 +16,5 @@ export default function useFeaturedTitles() {
     createdAtSince: createdAtSince.toISOString().slice(0, -13) + "00:00:00"
   }
 
-  return useSearchManga(requestParams)
-}
+  return useSearchManga(requestParams)  
+} 
